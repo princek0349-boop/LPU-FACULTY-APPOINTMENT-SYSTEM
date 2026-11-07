@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPU Faculty Appointment Scheduling System</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--  HEADER SECTION -->
+    <header>
+        <div class="header-badge">Lovely Professional University</div>
+        <h1>LPU Faculty Appointment Scheduling System</h1>
+        <p>Book 15-Minute Consultation &amp; Doubt-Clearing Slots with Faculty Members</p>
+    </header>
+
+    <main class="container">
+
+       
+        <div id="statusMessage" class="status-banner hidden"></div>
+
+        <!--  FACULTY DIRECTORY & DEPARTMENT FILTER -->
+        <section class="section-box">
+            <div class="section-header">
+                <h2 class="section-title">1. Faculty Directory</h2>
+                <div class="filter-group">
+                    <label for="departmentFilter">Filter by Department:</label>
+                    <select id="departmentFilter">
+                        <option value="ALL">All Departments</option>
+                        <option value="CSE">CSE (Computer Science)</option>
+                        <option value="ECE">ECE (Electronics &amp; Comm.)</option>
+                        <option value="MTH">MTH (Mathematics)</option>
+                    </select>
+                </div>
+            </div>
+            <div id="facultyGrid" class="faculty-grid"></div>
+        </section>
+
+        <!--  WEEKLY OFFICE HOURS GRID SECTION -->
+        <section id="scheduleSection" class="section-box hidden">
+            <div class="section-header">
+                <h2 class="section-title">2. Weekly Office Hours (15-Minute Slots)</h2>
+                <div class="slot-legend">
+                    <div class="legend-item">
+                        <span class="legend-box legend-open"></span>
+                        <span>Open (Clickable)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-box legend-booked"></span>
+                        <span>Booked (Unavailable)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-box legend-selected"></span>
+                        <span>Selected</span>
+                    </div>
+                </div>
+            </div>
+            <div class="selected-prof-banner">
+                <div>Showing Consultation Slots for: <span id="selectedProfName">-</span></div>
+                <div>Location: <span id="selectedProfCabin">-</span></div>
+            </div>
+            <p style="font-size: 14px; color: #555555;">
+                Click on any green <strong>Open</strong> 15-minute slot below to open the appointment booking form:
+            </p>
+            <div id="slotsGrid" class="slots-grid"></div>
+        </section>
+
+        <!--  APPOINTMENT BOOKING FORM SECTION -->
+        <section id="bookingFormSection" class="section-box hidden">
+            <div class="section-header">
+                <h2 class="section-title">3. Appointment Booking Form</h2>
+            </div>
+            <div class="booking-form-container">
+                <div id="selectedSlotBanner" class="selected-slot-notice">
+                    Booking Slot: <strong>-</strong>
+                </div>
+                <form id="appointmentForm">
+                    <div class="form-group">
+                        <label for="studentRoll">Student Roll Number / Registration No. *</label>
+                        <input type="text" id="studentRoll" placeholder="e.g., 12401582 or RK24PSA01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subjectCode">Subject Code *</label>
+                        <input type="text" id="subjectCode" placeholder="e.g., CSE326, INT108, ECE249" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="discussionTopic">Discussion Topic / Meeting Agenda *</label>
+                        <textarea id="discussionTopic" rows="3" placeholder="Briefly describe your project query or doubt topic..." required></textarea>
+                    </div>
+                    <button type="submit" class="book-submit-btn">Book Slot</button>
+                </form>
+            </div>
+        </section>
+
+        <!--  INSTANT BOOKING CONFIRMATION SLIP -->
+        <section id="confirmationSection" class="section-box hidden">
+            <div class="section-header">
+                <h2 class="section-title">4. Booking Confirmation Slip</h2>
+            </div>
+            <div class="confirmation-slip">
+                <div class="slip-header">
+                    <span class="slip-badge">APPOINTMENT CONFIRMED</span>
+                    <h3>LPU Faculty Consultation Pass</h3>
+                </div>
+                <div class="slip-details-grid">
+                    <div class="slip-item">
+                        <span class="slip-label">Faculty Name</span>
+                        <span id="slipFacultyName" class="slip-value">-</span>
+                    </div>
+                    <div class="slip-item">
+                        <span class="slip-label">Department</span>
+                        <span id="slipDepartment" class="slip-value">-</span>
+                    </div>
+                    <div class="slip-item">
+                        <span class="slip-label">Cabin / Room Number</span>
+                        <span id="slipCabin" class="slip-value">-</span>
+                    </div>
+                    <div class="slip-item">
+                        <span class="slip-label">Booked Time Slot</span>
+                        <span id="slipTimeSlot" class="slip-value">-</span>
+                    </div>
+                    <div class="slip-item">
+                        <span class="slip-label">Student Roll Number</span>
+                        <span id="slipStudentRoll" class="slip-value">-</span>
+                    </div>
+                    <div class="slip-item">
+                        <span class="slip-label">Subject Code</span>
+                        <span id="slipSubjectCode" class="slip-value">-</span>
+                    </div>
+                    <div class="slip-item full-width">
+                        <span class="slip-label">Discussion Topic / Agenda</span>
+                        <span id="slipTopic" class="slip-value">-</span>
+                    </div>
+                </div>
+                <button id="cancelAppointmentBtn" type="button" class="cancel-btn">Cancel Appointment</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <p>Project Developed by <span>Prince</span> | B.Tech CSE 1st Semester</p>
+    </footer>
+
+    <!-- External JavaScript File Link -->
+    <script src="script.js"></script>
+</body>
+</html>

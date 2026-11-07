@@ -1,0 +1,524 @@
+
+
+/* for styling across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    color: #1e1e1e;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*  HEADER STYLES
+*/
+header {
+    background-color: #190e0e;
+    color: #ffffff;
+    border-bottom: 5px solid #f37021; 
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.header-badge {
+    display: inline-block;
+    background-color: #f37021;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+header p {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+
+   /* MAIN CONTAINER and SECTION STYLES */
+
+.container {
+    max-width: 1100px;
+    width: 92%;
+    margin: 30px auto;
+    flex: 1;
+}
+
+.section-box {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 20px;
+    color: #1a1a1a;
+    border-left: 4px solid #f37021;
+    padding-left: 10px;
+}
+
+/* Utility class to hide elements via JavaScript */
+.hidden {
+    display: none !important;
+}
+
+/* 
+    FACULTY DIRECTORY & DEPARTMENT FILTER
+ */
+#departmentFilter:hover{
+    background-color: #d8e1dc;
+    border-color: #f37021;
+
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333333;
+}
+
+.filter-group select {
+    padding: 8px 14px;
+    font-size: 14px;
+    border: 2px solid #cccccc;
+    border-radius: 6px;
+    background-color: #ffffff;
+    cursor: pointer;
+    outline: none;
+}
+
+.filter-group select:focus {
+    border-color: #f37021;
+}
+
+/* CSS Grid for Faculty Profile Cards */
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.faculty-card {
+    background-color: #ffffff;
+    border: 2px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.faculty-card:hover {
+    transform: translateY(-3px);
+    border-color: #f37021;
+    background-color: #cfc9c9;
+    box-shadow: 0 4px 12px rgba(243, 112, 33, 0.15);
+}
+
+/* Highlight style when a faculty card is selected */
+.faculty-card.active-card {
+    border-color: #f37021;
+    background-color: #fffaf5;
+    box-shadow: 0 4px 12px rgba(243, 112, 33, 0.2);
+}
+
+.dept-badge {
+    display: inline-block;
+    background-color: #1a1a1a;
+    color: #f37021;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.faculty-card h3 {
+    font-size: 18px;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.faculty-designation {
+    font-size: 13px;
+    color: #f10000;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.faculty-info {
+    font-size: 13.5px;
+    color: #9d5050;
+    margin-bottom: 6px;
+}
+
+.faculty-info strong {
+    color: #1a1a1a;
+}
+
+.select-faculty-btn {
+    margin-top: 14px;
+    width: 100%;
+    padding: 9px;
+    background-color: #f06108;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor:pointer;
+    transition: background-color 0.2s ease;
+}
+
+.select-faculty-btn:hover {
+    background-color: #ab4200;
+}
+
+/* 
+ WEEKLY OFFICE HOURS GRID
+ */
+.selected-prof-banner {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.selected-prof-banner span {
+    color: #f37021;
+    font-weight: bold;
+}
+
+/* Legend to explain Open vs Booked colors */
+.slot-legend {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    align-items: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-box {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+}
+
+.legend-open {
+    background-color: #e8f8f0;
+    border: 2px solid #27ae60;
+}
+
+.legend-booked {
+    background-color: #fdeaea;
+    border: 2px solid #e74c3c;
+}
+
+.legend-selected {
+    background-color: #f37021;
+    border: 2px solid #d35400;
+}
+
+/* Grid for 15-minute Time Slots */
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 15px;
+}
+
+.slot-btn {
+    padding: 14px 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.slot-status-text {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Open Slot Styling (Green & Clickable) */
+.open-slot {
+    background-color: #e8f8f0;
+    color: #1e8449;
+    border: 2px solid #27ae60;
+    cursor: pointer;
+}
+
+.open-slot:hover {
+    background-color: #d4efdf;
+    transform: scale(1.02);
+}
+
+/* Currently Selected Open Slot for Booking */
+.selected-slot {
+    background-color: #f37021 !important;
+    color: #ffffff !important;
+    border: 2px solid #b84d0d !important;
+}
+
+/* Booked Slot Styling (Red/Gray & Unclickable) */
+.booked-slot {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 2px solid #ebccd1;
+    cursor: not-allowed;
+    opacity: 0.75;
+}
+
+/* 
+    APPOINTMENT BOOKING FORM
+*/
+.booking-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.selected-slot-notice {
+    background-color: #fff3e6;
+    border-left: 4px solid #f37021;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #f37021;
+    box-shadow: 0 0 0 2px rgba(243, 112, 33, 0.15);
+}
+
+.book-submit-btn {
+    background-color: #f37021;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.book-submit-btn:hover {
+    background-color: #d95d12;
+}
+
+/* 
+    INSTANT BOOKING CONFIRMATION SLIP
+*/
+.confirmation-slip {
+    max-width: 650px;
+    margin: 0 auto;
+    border: 2px dashed #f37021;
+    background-color: #fffdf9;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.slip-header {
+    text-align: center;
+    border-bottom: 2px solid #eeeeee;
+    padding-bottom: 15px;
+    margin-bottom: 18px;
+}
+
+.slip-badge {
+    display: inline-block;
+    background-color: #27ae60;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 15px;
+    margin-bottom: 6px;
+}
+
+.slip-header h3 {
+    font-size: 22px;
+    color: #1a1a1a;
+}
+
+.slip-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.slip-item {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    padding: 10px 14px;
+    border-radius: 5px;
+}
+
+.slip-item.full-width {
+    grid-column: span 2;
+}
+
+.slip-label {
+    font-size: 12px;
+    color: #777777;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.slip-value {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.cancel-btn {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border: none;
+    padding: 11px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Status message banner (used when appointment is cancelled) */
+.status-banner {
+    background-color: #eef9f1;
+    border: 1px solid #27ae60;
+    color: #1e8449;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 
+   FOOTER STYLES
+   */
+footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+    padding: 18px;
+    font-size: 14px;
+    border-top: 3px solid #f37021;
+    margin-top: auto;
+}
+
+footer span {
+    color: #f37021;
+    font-weight: bold;
+}
+
+/* 
+   RESPONSIVE DESIGN FOR MOBILE SCREENS
+ */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 22px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .slip-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .slip-item.full-width {
+        grid-column: span 1;
+    }
+}
